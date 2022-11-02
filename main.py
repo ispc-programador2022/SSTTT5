@@ -26,7 +26,7 @@ class Menu:
         Ventas.scraping()
         print("Se ha guardado el archivo ventas.csv en la raiz del proyecto")
         print("Se abrirá una ventana del navegador para recopilar la información dinámica...")
-        Inflacion().get_data()
+        Inflacion()
         print("Se ha guardo con éxito el archivo inflación.csv... volviendo al menu principal")
         Menu.inicio()
 

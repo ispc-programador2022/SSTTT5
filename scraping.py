@@ -11,17 +11,12 @@ import requests
 
 class Inflacion:
 
-    def __int__(self):
+    def __init__(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get("https://es.investing.com/economic-calendar/argentinian-cpi-436")
         self.more_data = WebDriverWait(self.driver, 1).until(EC.visibility_of_all_elements_located((By.ID, "showMoreHistory436")))
-
-
-    def get_data(self):
-        self.__int__()
         self.scraping()
-
 
     def onclick(self, clicks):
         for i in range(0, clicks):
@@ -92,19 +87,20 @@ class Ventas:
         myfile = requests.get(url)
         open('ventas.csv', 'wb').write(myfile.content)
 
-### Obtener un archivo csv cargado en una pagina web
+    @staticmethod
+    def reader_online():
 
-import pandas as pd
+        ### Obtener un archivo csv cargado en una pagina web
 
-#Cargamos la URL que contiene el archivo
-url = 'https://infra.datos.gob.ar/catalog/sspm/dataset/455/distribution/455.1/download/ventas-totales-supermercados-2.csv'
+        #Cargamos la URL que contiene el archivo
+        url = 'https://infra.datos.gob.ar/catalog/sspm/dataset/455/distribution/455.1/download/ventas-totales-supermercados-2.csv'
 
-#Llamamos al archivo y lo convertimos en un data frame
-df_ventas = pd.read_csv(url)
+        #Llamamos al archivo y lo convertimos en un data frame
+        df_ventas = pd.read_csv(url)
 
-#Realizamos una consulta al data frame 
-df_ventas.head()
-df_ventas.info()
+        #Realizamos una consulta al data frame
+        df_ventas.head()
+        df_ventas.info()
         
 
 
