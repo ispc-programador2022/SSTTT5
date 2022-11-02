@@ -31,7 +31,7 @@ class Inflacion:
         data = soup.find("table", {"id": "eventHistoryTable436"})
         fechas = data.find_all("td", {"class": "left"})
         datos_inflacion = data.find_all("td", {"class": "noWrap"})
-        self.save_csv(fechas, datos_inflacion)
+        self.save_csv(self.filtrar_fechas(fechas), self.filtrar_inflacion(datos_inflacion))
         self.driver.quit()
 
 
@@ -59,11 +59,8 @@ class Inflacion:
 
 
     def save_csv(self, fechas, datos_inflacion):
-
-        fechas = self.filtrar_fechas(fechas)
-        inflacion = self.filtrar_inflacion(datos_inflacion)
-
-        datos = {"fecha": fechas, "variacion_mensual": inflacion}
+        
+        datos = {"fecha": fechas, "variacion_mensual": datos_inflacion}
         df = pd.DataFrame(datos, columns=['fecha', 'variacion_mensual'])
         df.to_csv('inflacion.csv', index=False)
 
