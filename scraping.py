@@ -92,6 +92,22 @@ class Ventas:
         myfile = requests.get(url)
         open('ventas.csv', 'wb').write(myfile.content)
 
+### Obtener un archivo csv cargado en una pagina web
+
+import pandas as pd
+
+#Cargamos la URL que contiene el archivo
+url = 'https://infra.datos.gob.ar/catalog/sspm/dataset/455/distribution/455.1/download/ventas-totales-supermercados-2.csv'
+
+#Llamamos al archivo y lo convertimos en un data frame
+df_ventas = pd.read_csv(url)
+
+#Realizamos una consulta al data frame 
+df_ventas.head()
+df_ventas.info()
+        
+
+
 
 
 
