@@ -1,0 +1,33 @@
+--> Promedio Ventas 2022: 24427.7550 
+ 
+
+--> Variabilidad Ventas 2022 (Desvío Estándar): 933.0240 
+ 
+ 
+--> Mediana Ventas 2022: 24142.7789 
+ 
+ 
+--> Mes de Mayores Ventas 2022: Julio 
+ 
+ 
+--> Monto Total Mayores Ventas 2022: 26090.18031 
+ 
+ 
+--> Mes de Menores Ventas 2022: Mayo 
+ 
+ 
+--> Monto Menores Ventas 2022: 23235.0963  
+ 
+ 
+--> Variaciones Mensuales Ventas 2022 
+ 
+ 
+id     fecha  ventas_precios_constantes  var_mensual
+60  2022-01           25464.131520          NaN
+61  2022-02           23803.202023        -0.07
+62  2022-03           24612.901369         0.03
+63  2022-04           24141.199035        -0.02
+64  2022-05           23235.096273        -0.04
+65  2022-06           24144.358859         0.04
+66  2022-07           26090.180313         0.08
+67  2022-08           23930.970811        -0.08
