@@ -1,5 +1,6 @@
 from scraping import Inflacion, Ventas
 from DataSql import *
+from statistics import analysis
 class Menu:
 
     @staticmethod
@@ -7,8 +8,7 @@ class Menu:
         print("========== Bienvenido ===========")
         print("1 - Obtener información - Scraping")
         print("2 - Ver o cargar los datos a la base de datos")
-        print("3 - Ej. Procesamiento de datos - Estadística")
-        print("4 - Ej. Graficos etc")
+        print("3 - Procesamiento de datos - Estadísticos")
 
 
         opcion = int(input("Ingrese la opción y presione enter: "))
@@ -18,8 +18,7 @@ class Menu:
         elif(opcion == 2):
             Menu.data_sql()
         elif(opcion == 3):
-            print("EN DESARROLLO...")
-            Menu.inicio()
+            analysis()
 
     @staticmethod
     def scraping():

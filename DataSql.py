@@ -55,7 +55,6 @@ class VentasSQL:
     def getData(self):
         query = "SELECT * FROM " + self.tableName
         data = self.sql.ejecutar(query)
-        print(data)
         return data
 
     def open_csv(self):
