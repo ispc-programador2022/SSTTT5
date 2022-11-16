@@ -3,7 +3,7 @@
 # SSTTT5 - PROYECTO TECNOLÓGICO INTEGRADOR -
 
 ## Tabla de contenidos
-1. [Informacion General](#informacion-general)
+1. [Información General](#informacion-general)
 2. [Librerías Utilizadas](#librerias-utilizadas)
 3. [Instalación](#instalacion)
 4. [Integrantes](#integrantes)
