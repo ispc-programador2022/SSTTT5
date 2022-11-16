@@ -8,6 +8,8 @@ Created on Sun Nov 13 11:22:47 2022
 import pandas as pd
 from matplotlib import pyplot as plt
 import statsmodels.api as sm
+from io import open
+
 
 # ==========================================================================================================================================================
 #  CARGA Y REVISION DE DATOS - Analisis preliminar exploratorio
@@ -16,17 +18,14 @@ import statsmodels.api as sm
 #Lectura del archivo (tambien se puede usar el enlace  extraido con tecnicas de web scrapping"
 try:
     df_ventas = pd.read_csv("ventas.csv", header = 0)
-
 except:
     print("No se pudo abrir archivo. Verificar")
-
 
 #Resumen dataframes "ventas"
 df_ventas.info()
 
 #Top 10  primeras filas
 print(df_ventas.head(10))
-
 
 #Variables/atributos
 cols_df_ventas = list(df_ventas.columns)
@@ -40,7 +39,6 @@ df_ventas["indice_tiempo"] = pd.to_datetime(df_ventas["indice_tiempo"])
 anio_mes = lambda x: x[:7]
 df_ventas["fecha"] = df_ventas["indice_tiempo"].astype(str).map(anio_mes)
 df_ventas.head(10)
-
 
 #Verifico los cambios
 df_ventas.info()
@@ -62,13 +60,11 @@ plt.ylabel("Ventas",c="red")
 
 plt.savefig("grafico1.png")
 
-
 #Se observa Que es una Serie de Tiempo con Estacionalidad
 #Aplico el filtro Hodrick-Prescott para separar en tendencia y componente ciclico
 
 df_ventas_ciclo, df_ventas_tend = sm.tsa.filters.hpfilter(df_ventas['ventas_precios_constantes'])
 df_ventas['tendencia'] = df_ventas_tend
-
 
 #------------------------------------------------------------------------
 #Grafico 2, Visualizacion  componente tendencia y  componente ciclico. --
@@ -81,7 +77,6 @@ plt.xlabel("Anio",c="black")
 plt.ylabel("Ventas",c="black")
 
 plt.savefig("grafico2.png")
-
 
 # ==========================================================================================================================================================
 # VENTAS AÑO 2022
