@@ -1,4 +1,4 @@
-## ![image](https://user-images.githubusercontent.com/88250320/202276582-56e696d5-4c9a-4a12-97f7-be3f31b43b25.png)
+## ![image](https://user-images.githubusercontent.com/88250320/202279078-0c35185f-eb80-4634-8f77-72f5347ebe51.png)
 
 # SSTTT5 - PROYECTO TECNOLÓGICO INTEGRADOR -
 
