@@ -2,7 +2,7 @@
 
 ## Tabla de contenidos
 1. [Informacion General](#informacion-general)
-2. [Librerias Utilizadas](#librerias-utilizadas)
+2. [Librerías Utilizadas](#librerias-utilizadas)
 3. [Instalación](#instalacion)
 4. [Integrantes](#integrantes)
 
@@ -12,7 +12,7 @@
 El trabajo se encuentra realizado por el grupo SSTTT5 de la carrera Ciencias de Datos e Inteligencia Artificial, para el Proyecto Tecnológico Integrador, teniendo como objetivo simular una experiencia real colaborativa en un entorno ágil, para el cual se utilizaron herramientas como Trello para la organización de tareas y Github para el repositorio de archivos. Esta desarrollado en Python, haciendo uso de varias librerías que permiten técnicas como web scrapping y persistencia de datos, utilizadas para el análisis exploratorio de las ventas de los últimos años en supermercados de Argentina.
 
 
-## Librerias utilizadas
+## Librerías utilizadas
 ***
 * Python Version 3.10.6 
 * async-generator Version 1.10
@@ -28,7 +28,7 @@ El trabajo se encuentra realizado por el grupo SSTTT5 de la carrera Ciencias de 
 * exceptiongroup Version 1.0.1
 * filelock Version 3.8.0
 * fonttools Version 4.38.0
-* greenlet Version 2.0.0.post0
+* greenlet Version 2.0.0.
 * h11 Version 0.14.0
 * idna Version 3.4
 * Jinja2 Version 3.1.2
