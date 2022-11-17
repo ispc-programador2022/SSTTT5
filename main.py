@@ -1,6 +1,6 @@
 from scraping import Inflacion, Ventas
 from DataSql import *
-from statistics import analysis
+import statistics
 class Menu:
 
     @staticmethod
@@ -18,7 +18,7 @@ class Menu:
         elif(opcion == 2):
             Menu.data_sql()
         elif(opcion == 3):
-            analysis()
+            statistics.analysis()
 
     @staticmethod
     def scraping():

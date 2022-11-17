@@ -17,93 +17,98 @@ def analysis():
 
     #Lectura del archivo (tambien se puede usar el enlace  extraido con tecnicas de web scrapping"
     try:
-        df_ventas = pd.read_csv("ventas.csv", header = 0)
+        df_ventas = pd.read_csv("ventas.csv", header=0)
     except:
-        print("No se pudo abrir archivo. Verificar")
+        print("No se pudo abrir archivo. Testear el error e intentarlo nuevamente")
 
-    #Resumen dataframes "ventas"
+    # Resumen dataframes "ventas"
     df_ventas.info()
 
-    #Top 10  primeras filas
+    # Top 10  primeras filas
     print(df_ventas.head(10))
 
-    #Variables/atributos
+    # Variables/atributos
     cols_df_ventas = list(df_ventas.columns)
     print(cols_df_ventas)
 
-    #Los valores de la columna/atributo "indice_tiempo" son de tipo object, indicando que posiblemente son cadenas de texto
-    #Convierto dicha columna en serie de tipo datetime64 para trabajar con fechas
-    #Solo me interesa mes y anio
+    # Los valores de la columna/atributo "indice_tiempo" son de tipo object, indicando que posiblemente son cadenas de texto
+    # Convierto dicha columna en serie de tipo datetime64 para trabajar con fechas
+    # Solo me interesa mes y anio
 
     df_ventas["indice_tiempo"] = pd.to_datetime(df_ventas["indice_tiempo"])
     anio_mes = lambda x: x[:7]
     df_ventas["fecha"] = df_ventas["indice_tiempo"].astype(str).map(anio_mes)
     df_ventas.head(10)
 
-    #Verifico los cambios
+    # Verifico los cambios
     df_ventas.info()
 
-    #Primera Visualizacion Serie de Tiempo de Ventas
+    # Primera Visualizacion Serie de Tiempo de Ventas
 
-    #--------------------------------------
-    #Grafico 1; Evolucion de las Ventas ---
-    #--------------------------------------
+    # --------------------------------------
+    # Grafico 1; Evolucion de las Ventas ---
+    # --------------------------------------
 
-    plt.plot(df_ventas["indice_tiempo"],df_ventas["ventas_precios_constantes"],label="Vtas. en Supermercados",c="red")
+    plt.plot(df_ventas["indice_tiempo"], df_ventas["ventas_precios_constantes"], label="Vtas. en Supermercados",
+             c="red")
 
     plt.style.use("dark_background")
-    plt.grid(b=True,lw=0.5)
+    plt.grid(b=True, lw=0.5)
     plt.legend()
     plt.title("EVOLUCION DE LAS VENTAS EN SUPERMERCADOS A PRECIOS CONSTANTES", c="red")
-    plt.xlabel("Anio",c="red")
-    plt.ylabel("Ventas",c="red")
+    plt.xlabel("Anio", c="red")
+    plt.ylabel("Ventas", c="red")
 
     plt.savefig("grafico1.png")
+    plt.show()
 
-    #Se observa Que es una Serie de Tiempo con Estacionalidad
-    #Aplico el filtro Hodrick-Prescott para separar en tendencia y componente ciclico
+    # Se observa Que es una Serie de Tiempo con Estacionalidad
+    # Aplico el filtro Hodrick-Prescott para separar en tendencia y componente ciclico
 
     df_ventas_ciclo, df_ventas_tend = sm.tsa.filters.hpfilter(df_ventas['ventas_precios_constantes'])
     df_ventas['tendencia'] = df_ventas_tend
 
-    #------------------------------------------------------------------------
-    #Grafico 2, Visualizacion  componente tendencia y  componente ciclico. --
-    #------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
+    # Grafico 2, Visualizacion  componente tendencia y  componente ciclico. --
+    # ------------------------------------------------------------------------
 
-    df_ventas[["indice_tiempo","ventas_precios_constantes","tendencia"]].plot(x="indice_tiempo")
+    df_ventas[["indice_tiempo", "ventas_precios_constantes", "tendencia"]].plot(x="indice_tiempo")
     legend = plt.legend()
     legend.prop.set_size(14)
-    plt.xlabel("Anio",c="black")
-    plt.ylabel("Ventas",c="black")
+    plt.xlabel("Anio", c="black")
+    plt.ylabel("Ventas", c="black")
 
     plt.savefig("grafico2.png")
+    plt.show()
 
     # ==========================================================================================================================================================
     # VENTAS AÑO 2022
     # ==========================================================================================================================================================
 
-    #Filtro el anio de interes
+    # Filtro el anio de interes
 
-    df_ventas_2022 = df_ventas.tail(8)
+    df_ventas_2022 = df_ventas.loc[60:67]
     df_ventas_2022.describe()
 
-    ventas_mensuales_2022= df_ventas_2022[["fecha","ventas_precios_constantes"]]
+    ventas_mensuales_2022 = df_ventas_2022[["fecha", "ventas_precios_constantes"]]
 
-    #-------------------------------------
-    #Grafico 3, Ventas Mensuales 2022 ----
-    #-------------------------------------
+    # -------------------------------------
+    # Grafico 3, Ventas Mensuales 2022 ----
+    # -------------------------------------
 
-    plt.plot(ventas_mensuales_2022["fecha"],ventas_mensuales_2022["ventas_precios_constantes"], label ="Consumo en Supermercados Anio 2022")
+    ventas_mensuales_2022[["fecha", "ventas_precios_constantes"]].plot(x="fecha")
 
     plt.style.use("dark_background")
-    plt.legend()
+    plt.title("CONSUMO EN SUPERMERCADOS AGOSTO 2022", c="green")
+    plt.xlabel("Anio", c="green")
+    plt.ylabel("Ventas", c="green")
 
     plt.savefig("grafico3.png")
+    plt.show()
 
-
-    #-----------------------------
-    #Estadisticos Descriptivos ---
-    #-----------------------------
+    # -----------------------------
+    # Estadisticos Descriptivos ---
+    # -----------------------------
 
     promedio_ventas_2022 = ventas_mensuales_2022["ventas_precios_constantes"].mean()
 
@@ -112,33 +117,36 @@ def analysis():
     median_ventas_2022 = ventas_mensuales_2022["ventas_precios_constantes"].median()
 
     ventas_maximas = ventas_mensuales_2022["ventas_precios_constantes"].max()
-    mes_ventas_maxima =ventas_mensuales_2022.loc[ventas_mensuales_2022["ventas_precios_constantes"].idxmax(),"fecha"]
+    mes_ventas_maxima = ventas_mensuales_2022.loc[ventas_mensuales_2022["ventas_precios_constantes"].idxmax(), "fecha"]
 
     ventas_minima = ventas_mensuales_2022["ventas_precios_constantes"].min()
-    mes_ventas_minima =ventas_mensuales_2022.loc[ventas_mensuales_2022["ventas_precios_constantes"].idxmin(),"fecha"]
+    mes_ventas_minima = ventas_mensuales_2022.loc[ventas_mensuales_2022["ventas_precios_constantes"].idxmin(), "fecha"]
 
-
-    #Calculo Variacion Mensual
-    variacion_mensual = ventas_mensuales_2022["ventas_precios_constantes"]/ventas_mensuales_2022["ventas_precios_constantes"].shift(1) - 1
-    ventas_mensuales_2022["var_mensual"] = round(variacion_mensual,2)
-
+    # Calculo Variacion Mensual
+    variacion_mensual = ventas_mensuales_2022["ventas_precios_constantes"] / ventas_mensuales_2022[
+        "ventas_precios_constantes"].shift(1) - 1
+    ventas_mensuales_2022["var_mensual"] = round(variacion_mensual, 2)
 
     print(ventas_mensuales_2022)
 
+    # Composicion_Ventas Agosto 2022, Ultimo mes de informacion
 
-    #Composicion_Ventas Agosto 2022, Ultimo mes de informacion
+    # ---------------------------------
+    # Grafico 4, Diagrama de Barras ---
+    # ---------------------------------
 
-    #---------------------------------
-    #Grafico 4, Diagrama de Barras ---
-    #---------------------------------
+    eje_x_g4 = ['bebidas', 'almacen', 'panaderia', 'lacteos', 'carnes', 'verduleria_fruteria',
+                'alimentos_preparados_rotiseria', 'articulos_limpieza_perfumeria',
+                'indumentaria_calzado_textiles_hogar', 'electronicos_articulos_hogar', 'otros']
 
-    eje_x_g4 = ['bebidas', 'almacen', 'panaderia', 'lacteos', 'carnes', 'verduleria_fruteria', 'alimentos_preparados_rotiseria', 'articulos_limpieza_perfumeria', 'indumentaria_calzado_textiles_hogar', 'electronicos_articulos_hogar', 'otros']
+    eje_y_g4 = df_ventas_2022.loc[67, ['bebidas', 'almacen', 'panaderia', 'lacteos', 'carnes', 'verduleria_fruteria',
+                                       'alimentos_preparados_rotiseria', 'articulos_limpieza_perfumeria',
+                                       'indumentaria_calzado_textiles_hogar', 'electronicos_articulos_hogar', 'otros']]
 
-    eje_y_g4 = df_ventas_2022.loc[67,['bebidas', 'almacen', 'panaderia', 'lacteos', 'carnes', 'verduleria_fruteria', 'alimentos_preparados_rotiseria', 'articulos_limpieza_perfumeria', 'indumentaria_calzado_textiles_hogar', 'electronicos_articulos_hogar', 'otros']]
+    colores = ['#00FFFF', '#FFE4C4', '#FF7F50', '#F0F8FF', '#7FFFD4', '#FFD700', '#FF69B4', '#778899', '#FFFF00',
+               '#000080', '#ADFF2F']
 
-    colores = ['#00FFFF','#FFE4C4','#FF7F50','#F0F8FF','#7FFFD4','#FFD700','#FF69B4','#778899','#FFFF00','#000080','#ADFF2F']
-
-    grafico_cuatro = plt.barh(eje_x_g4,eje_y_g4, color =colores)
+    plt.barh(eje_x_g4, eje_y_g4, color=colores)
 
     plt.style.use("classic")
     plt.title("Composicion del Consumo en Supermercados Agosto 2022")
@@ -146,42 +154,44 @@ def analysis():
     plt.ylabel("Grupo de Articulos")
 
     plt.savefig("grafico4.png")
+    plt.show()
 
-    #Medios De Pago Utilizados Agosto 2022, Ultimo mes de Informacion
+    # Medios De Pago Utilizados Agosto 2022, Ultimo mes de Informacion
 
-    df_medios_de_pago = df_ventas_2022[['ventas_totales_medio_pago', 'efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']]
+    df_medios_de_pago = df_ventas_2022[
+        ['ventas_totales_medio_pago', 'efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']]
 
-    #------------------------------------------------------------
-    #Grafico 5, Diagrama Circular "Medios de Pago Agosto 2022" --
-    #------------------------------------------------------------
+    # ------------------------------------------------------------
+    # Grafico 5, Diagrama Circular "Medios de Pago Agosto 2022" --
+    # ------------------------------------------------------------
 
+    lista_medios_de_pagos = ['Efectivo', 'Tarjetas de Debito', 'Tarjetas de Credito', 'Otros_Medios']
+    valores_medios_de_pago_agosto = df_ventas_2022.loc[
+        67, ['efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']]
 
-    lista_medios_de_pagos = ['efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']
-    valores_medios_de_pago_agosto = df_ventas_2022.loc[67,['efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']]
-
-    grafico_cinco = plt.pie(valores_medios_de_pago_agosto, labels =lista_medios_de_pagos, autopct="%0.1f %%" )
+    plt.pie(valores_medios_de_pago_agosto, labels=lista_medios_de_pagos, autopct="%0.1f %%")
 
     plt.title("Medios de Pago Agosto 2022")
     plt.axis("equal")
 
     plt.savefig("grafico5.png")
-
+    plt.show()
 
     # ==========================================================================================================================================================
     # INFLACION AÑO 2022
     # ==========================================================================================================================================================
 
-    df_inflacion = pd.read_csv("inflacion.csv", header = 0)
+    df_inflacion = pd.read_csv("inflacion.csv", header=0)
 
     df_inflacion.info()
 
-    inflacion_mensual_2022= df_inflacion.loc[3:10]
+    inflacion_mensual_2022 = df_inflacion.loc[3:10]
 
     # ==========================================================================================================================================================
     # RESUMEN DE DATOS -- Persistencia de Datos
     # ==========================================================================================================================================================
 
-    archivo_resumen_datos = open("resumen_estadisticos_descriptivos.txt","w")
+    archivo_resumen_datos = open("resumen_estadisticos_descriptivos.txt", "w")
 
     texto = '''--> Promedio Ventas 2022: 24427.7550 \n \n
     --> Variabilidad Ventas 2022 (Desvío Estándar): 933.0240 \n \n 
