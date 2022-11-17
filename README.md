@@ -14,6 +14,17 @@
 ***
 El trabajo se encuentra realizado por el grupo SSTTT5 de la carrera Ciencias de Datos e Inteligencia Artificial, para el Proyecto Tecnológico Integrador, teniendo como objetivo simular una experiencia real colaborativa en un entorno ágil, para el cual se utilizaron herramientas como Trello para la organización de tareas y Github para el repositorio de archivos. Esta desarrollado en Python, haciendo uso de varias librerías que permiten técnicas como web scrapping y persistencia de datos, utilizadas para el análisis exploratorio de las ventas de los últimos años en supermercados de Argentina.
 
+## Tecnología utilizadas
+
+# ![image](https://salesdorado.com/wp-content/uploads/2022/07/Trello-Logo.png)
+
+Proyecto Final_SSTTT5
+
+# ![image](https://global-uploads.webflow.com/5f5a53e153805db840dae2db/6073fbf151fa4565d48572dc_GitHub_aprender-programaci%25C3%25B3n.jpeg)
+
+[ispc-programador2022/SSTTT5](#ispc-programador2022/SSTTT5)
+
+
 
 ## Librerías utilizadas
 ***
