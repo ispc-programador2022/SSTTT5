@@ -3,7 +3,7 @@
 # ![image](https://user-images.githubusercontent.com/88250320/202279408-e7c90dc4-ce35-45b1-a667-4c2464069370.png)
 # SSTTT5 - PROYECTO TECNOLÓGICO INTEGRADOR
 
-# Carrera - Ciencia de Datos e Inteligencia Artifial - Cohorte 2022
+## Carrera - Ciencia de Datos e Inteligencia Artifial - Cohorte 2022
 
 ## Docentes
 ***
