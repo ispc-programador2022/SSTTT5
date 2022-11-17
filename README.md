@@ -17,7 +17,7 @@
 
 ## Información general 
 ***
-El trabajo se encuentra realizado por el grupo SSTTT5 de la carrera Ciencias de Datos e Inteligencia Artificial, para el Proyecto Tecnológico Integrador I, teniendo como objetivo simular una experiencia real colaborativa en un entorno ágil, para el cual se utilizaron herramientas como Trello para la organización de tareas y Github para el repositorio de archivos. Esta desarrollado en Python, haciendo uso de varias librerías que permiten técnicas como web scrapping y persistencia de datos, utilizadas para el análisis exploratorio de las ventas de los últimos años en supermercados de Argentina.
+El trabajo se encuentra realizado por el grupo SSTTT5 de la carrera Ciencias de Datos e Inteligencia Artificial, para el Proyecto Tecnológico Integrador, teniendo como objetivo simular una experiencia real colaborativa en un entorno de desarrollo ágil.
 
 ## Alcance
 El proyecto tiene como principal función extraer información de sitios web mediante programas de software, siendo desarrollado en Python y haciendo uso de varias librerías que permiten técnicas como web scrapping y persistencia de datos, utilizadas para el análisis exploratorio de las ventas de los últimos años en supermercados de Argentina.
