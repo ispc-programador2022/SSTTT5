@@ -19,7 +19,7 @@ from io import open
 try:
     df_ventas = pd.read_csv("ventas.csv", header = 0)
 except:
-    print("No se pudo abrir archivo. Verificar")
+    print("No se pudo abrir archivo. Testear el error e intentarlo nuevamente")
 
 #Resumen dataframes "ventas"
 df_ventas.info()
@@ -59,6 +59,7 @@ plt.xlabel("Anio",c="red")
 plt.ylabel("Ventas",c="red")
 
 plt.savefig("grafico1.png")
+plt.show()
 
 #Se observa Que es una Serie de Tiempo con Estacionalidad
 #Aplico el filtro Hodrick-Prescott para separar en tendencia y componente ciclico
@@ -77,6 +78,7 @@ plt.xlabel("Anio",c="black")
 plt.ylabel("Ventas",c="black")
 
 plt.savefig("grafico2.png")
+plt.show()
 
 # ==========================================================================================================================================================
 # VENTAS AÑO 2022
@@ -84,7 +86,7 @@ plt.savefig("grafico2.png")
 
 #Filtro el anio de interes
 
-df_ventas_2022 = df_ventas.tail(8)
+df_ventas_2022 = df_ventas.loc[60:67]
 df_ventas_2022.describe()
 
 ventas_mensuales_2022= df_ventas_2022[["fecha","ventas_precios_constantes"]]
@@ -93,12 +95,16 @@ ventas_mensuales_2022= df_ventas_2022[["fecha","ventas_precios_constantes"]]
 #Grafico 3, Ventas Mensuales 2022 ----
 #-------------------------------------
 
-plt.plot(ventas_mensuales_2022["fecha"],ventas_mensuales_2022["ventas_precios_constantes"], label ="Consumo en Supermercados Anio 2022")
+ventas_mensuales_2022[["fecha","ventas_precios_constantes"]].plot(x="fecha")
 
 plt.style.use("dark_background")
-plt.legend()
+plt.title("CONSUMO EN SUPERMERCADOS AGOSTO 2022", c="green")
+plt.xlabel("Anio",c="green")
+plt.ylabel("Ventas",c="green")
 
 plt.savefig("grafico3.png")
+plt.show()
+
 
 
 #-----------------------------
@@ -138,7 +144,7 @@ eje_y_g4 = df_ventas_2022.loc[67,['bebidas', 'almacen', 'panaderia', 'lacteos', 
 
 colores = ['#00FFFF','#FFE4C4','#FF7F50','#F0F8FF','#7FFFD4','#FFD700','#FF69B4','#778899','#FFFF00','#000080','#ADFF2F']
 
-grafico_cuatro = plt.barh(eje_x_g4,eje_y_g4, color =colores)
+plt.barh(eje_x_g4,eje_y_g4, color =colores)
 
 plt.style.use("classic")
 plt.title("Composicion del Consumo en Supermercados Agosto 2022")
@@ -146,6 +152,7 @@ plt.xlabel("Ventas a precios constantes")
 plt.ylabel("Grupo de Articulos")
 
 plt.savefig("grafico4.png")
+plt.show()
 
 #Medios De Pago Utilizados Agosto 2022, Ultimo mes de Informacion
 
@@ -156,15 +163,16 @@ df_medios_de_pago = df_ventas_2022[['ventas_totales_medio_pago', 'efectivo', 'ta
 #------------------------------------------------------------
 
 
-lista_medios_de_pagos = ['efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']
+lista_medios_de_pagos = ['Efectivo', 'Tarjetas de Debito', 'Tarjetas de Credito', 'Otros_Medios']
 valores_medios_de_pago_agosto = df_ventas_2022.loc[67,['efectivo', 'tarjetas_debito', 'tarjetas_credito', 'otros_medios']]
 
-grafico_cinco = plt.pie(valores_medios_de_pago_agosto, labels =lista_medios_de_pagos, autopct="%0.1f %%" )
+plt.pie(valores_medios_de_pago_agosto, labels =lista_medios_de_pagos, autopct="%0.1f %%" )
 
 plt.title("Medios de Pago Agosto 2022")
 plt.axis("equal")
 
 plt.savefig("grafico5.png")
+plt.show()
 
 
 # ==========================================================================================================================================================
