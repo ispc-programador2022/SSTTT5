@@ -1,3 +1,5 @@
+##Se genera una base de datos con dos tablas que permiten hacer consultas en SQL.
+
 from DataBase import BaseDatos
 import pandas as pd
 
