@@ -3,6 +3,13 @@
 # ![image](https://user-images.githubusercontent.com/88250320/202279408-e7c90dc4-ce35-45b1-a667-4c2464069370.png)
 # SSTTT5 - PROYECTO TECNOLÓGICO INTEGRADOR
 
+# Carrera - Ciencia de Datos e Inteligencia Artifial - Cohorte 2022
+
+## Docentes
+***
+* Silvia Perotti
+* Héctor Prado
+
 ## Tabla de contenidos
 1. [Información General](#informacion-general)
 2. [Librerías Utilizadas](#librerias-utilizadas)
@@ -14,7 +21,7 @@
 ***
 El trabajo se encuentra realizado por el grupo SSTTT5 de la carrera Ciencias de Datos e Inteligencia Artificial, para el Proyecto Tecnológico Integrador, teniendo como objetivo simular una experiencia real colaborativa en un entorno ágil, para el cual se utilizaron herramientas como Trello para la organización de tareas y Github para el repositorio de archivos. Esta desarrollado en Python, haciendo uso de varias librerías que permiten técnicas como web scrapping y persistencia de datos, utilizadas para el análisis exploratorio de las ventas de los últimos años en supermercados de Argentina.
 
-##Alcance
+## Alcance
 El proyecto tiene como principal función extraer información de sitios web mediante programas de software, siendo desarrollado en Python y haciendo uso de varias librerías que permiten técnicas como web scrapping y persistencia de datos, utilizadas para el análisis exploratorio de las ventas de los últimos años en supermercados de Argentina.
 También se utilizan herramientas como Trello para la organización de tareas y Github para el repositorio de archivos. 
 
@@ -92,3 +99,5 @@ Proyecto Final_SSTTT5
 * Toro Gutiérrez Luciano
 * Talavera Natalia Agustina
 * Toñanes Franco Adrián
+
+
