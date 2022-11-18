@@ -27,11 +27,11 @@ También se utilizan herramientas como Trello para la organización de tareas y 
 
 # ![image](https://salesdorado.com/wp-content/uploads/2022/07/Trello-Logo.png)
 
-Proyecto Final_SSTTT5
+Link Trello https://trello.com/b/ZFTzTm4W/proyecto-finalssttt5
+
 
 # ![image](https://global-uploads.webflow.com/5f5a53e153805db840dae2db/6073fbf151fa4565d48572dc_GitHub_aprender-programaci%25C3%25B3n.jpeg)
-
-[ispc-programador2022/SSTTT5](#ispc-programador2022/SSTTT5)
+Link Github https://github.com/ispc-programador2022/SSTTT5
 
 
 
