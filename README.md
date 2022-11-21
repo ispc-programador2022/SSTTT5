@@ -98,6 +98,8 @@ Link Github https://github.com/ispc-programador2022/SSTTT5
 * Talavera Natalia Agustina
 * Toñanes Franco Adrián
 
+Link Video Proyecto Integrador: https://share.vidyard.com/watch/vjebQK3Wjan4d9AnFfaKZz?
+
 
 ## Docentes
 ***
