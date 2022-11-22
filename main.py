@@ -9,7 +9,7 @@ class Menu:
         print("========== Bienvenido ===========")
         print("1 - Obtener información - Scraping")
         print("2 - Ver o cargar los datos a la base de datos")
-        print("3 Procesamiento de datos - Estadísticos")
+        print("3 - Procesamiento de datos estadísticos")
 
 
         opcion = int(input("Ingrese la opción y presione enter: "))
