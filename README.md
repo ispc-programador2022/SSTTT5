@@ -33,7 +33,9 @@ Link Trello https://trello.com/b/ZFTzTm4W/proyecto-finalssttt5
 # ![image](https://global-uploads.webflow.com/5f5a53e153805db840dae2db/6073fbf151fa4565d48572dc_GitHub_aprender-programaci%25C3%25B3n.jpeg)
 Link Github https://github.com/ispc-programador2022/SSTTT5
 
-
+## Requerimientos de Selenium
+***
+* Chrome Versión 107.0.5304.107 (Build oficial)
 
 ## Librerías utilizadas
 ***

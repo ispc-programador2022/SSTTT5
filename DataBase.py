@@ -36,14 +36,14 @@ class BaseDatos:
             self.__datos = self.__cursor.fetchall()
 
     
-     def consulta(self, q, v=None):
+    def consulta(self, q, v=None):
         if v:
             self.__cursor.execute(q, v)
         else:
             self.__cursor.execute(q)
 
     
-     def ejecutar(self, query, values=None):
+    def ejecutar(self, query, values=None):
         self.conectar()
         self.cursor()
         self.consulta(query, values)
